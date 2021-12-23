@@ -4,7 +4,7 @@ A Flutter Package which will start Global Loader from any where in your code.
 
 ## Screenshots
 
-<img src="fancy_loader.jpg" height="300em" /> <img src="ss2.PNG" height="300em" /> <img src="circular_loader.jpg" height="300em" /> <img src="ss4.PNG" height="300em" />
+<img src="fancy_loader.jpg" height="300em" /> <img src="circular_loader.jpg" height="300em" /> 
 
 ## Usage
 [Example](hhttps://github.com/chandan123-pradhan/Global-Loader/tree/main/example/global_loader)

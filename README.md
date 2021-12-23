@@ -7,59 +7,90 @@ A Flutter Package which will start Global Loader from any where in your code.
 <img src="fancy_loader.jpg" height="300em" /> <img src="ss2.PNG" height="300em" /> <img src="circular_loader.PNG" height="300em" /> <img src="ss4.PNG" height="300em" />
 
 ## Usage
-[Example](https://github.com/siraiwaqarali/Flutter-Walkthrough/blob/master/example/example_app.dart)
+[Example](https://github.com/chandan123-pradhan/Global-Loader/tree/main/example/global_loader)
 
 To use this package:
 
-* add the dependency to your [pubspec.yaml](https://github.com/siraiwaqarali/Flutter-Walkthrough/blob/master/pubspec.yaml) file.
+* add the dependency to your [pubspec.yaml](https://github.com/chandan123-pradhan/Global-Loader/blob/main/example/global_loader/pubspec.yaml) file.
 
 ```yaml
     dependencies:
       flutter:
         sdk: flutter
-      walkthrough:
+      global_loader: ^0.0.1
 ```
 
 ### How to use
 
 ```dart
-    class TestScreen extends StatelessWidget {
+   
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
-      /*here we have a list of walkthroughs which we want to have,
-      each walkthrough has a title, content and an icon
-      */
-      final List<Walkthrough> list = [
-        Walkthrough(
-          title: "Title 1",
-          content: "Content 1",
-          imageIcon: Icons.restaurant_menu,
-        ),
-        Walkthrough(
-          title: "Title 2",
-          content: "Content 2",
-          imageIcon: Icons.search,
-        ),
-        Walkthrough(
-          title: "Title 3",
-          content: "Content 3",
-          imageIcon: Icons.shopping_cart,
-        ),
-        Walkthrough(
-          title: "Title 4",
-          content: "Content 4",
-          imageIcon: Icons.verified_user,
-        ),
-      ];
+  @override
+  _HomePageState createState() => _HomePageState();
+}
 
-      @override
-      Widget build(BuildContext context) {
-        //here we need to pass the list and route for the next page to be opened after this
-        return IntroScreen(
-          list,
-          MaterialPageRoute(builder: (context) => TestScreen()),
-        );
-      }
-    }
+class _HomePageState extends State<HomePage> {
+  GlobalLoader globalLoader = new GlobalLoader();
+  
+ 
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            InkWell(
+                onTap: () {
+                  // This code helps fancy loader.
+                  globalLoader.startFancyLoader(60,60);
+
+
+                },
+                child: Container(
+                    alignment: Alignment.center,
+                    height: 50,
+                    width: 150,
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Text(
+                      "Start",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ))),
+            InkWell(
+                onTap: () {
+                    // this line will stop your current loader.
+                  globalLoader.stop();
+                },
+                child: Container(
+                    alignment: Alignment.center,
+                    height: 50,
+                    width: 150,
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Text(
+                      "Stop",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    )))
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 ```
 
 ## License & Copyright

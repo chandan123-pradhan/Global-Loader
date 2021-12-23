@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             InkWell(
                 onTap: () {
-                  globalLoader.startCircularLoader(Colors.red,);
+                  globalLoader.startFancyLoader(60,60);
                   changeTimer();
                 },
                 child: Container(

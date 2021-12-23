@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
-import 'package:global_loader/src/LoadingWidget.dart';
-
+import 'package:global_loader/Widget/LoadingWidget.dart';
 
 class GlobalLoader extends GetxController {
  

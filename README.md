@@ -1,4 +1,4 @@
-# flutterwalkthrough
+# global_loader
 
 A Flutter Package which will start Global Loader from any where in your code.
 
